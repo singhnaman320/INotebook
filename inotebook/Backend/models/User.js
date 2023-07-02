@@ -4,4 +4,9 @@ const mongoose = require('mongoose');
 
 const blogSchema = new Schema({
  
+    name: {
+        type: String,
+        required: true
+    },
+    
 });
