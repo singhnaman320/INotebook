@@ -16,5 +16,9 @@ const blogSchema = new Schema({
         type: String,
         required: true
     },
+    date: {
+        type: Date,
+        default: Date.now // Do not call it like Date.now() because we will provide it at the time of insertion in MongpDB
+    },
 
 });
