@@ -3,3 +3,5 @@
 const connectToMongo = require('./db')
 
 connectToMongo();
+
+// Run with nodemon by installing nodemon by [npm i -D nodemon]
