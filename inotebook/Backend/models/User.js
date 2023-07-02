@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // From mongoose schema: https://mongoosejs.com/docs/guide.html
 
-const blogSchema = new Schema({
+const UserSchema = new Schema({
  
     name: {
         type: String,
@@ -23,3 +23,5 @@ const blogSchema = new Schema({
     },
 
 });
+
+module.exports = mongoose.model('user', UserSchema)
