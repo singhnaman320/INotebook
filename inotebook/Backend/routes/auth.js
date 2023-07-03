@@ -1,5 +1,6 @@
 const express = require('express') // import
 const router = express.Router();
+const user = require('../models/User')
 
 // Create a user uning POST: "/api/auth/". doesn't require auth
 

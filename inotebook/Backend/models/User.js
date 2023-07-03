@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
 // From mongoose schema: https://mongoosejs.com/docs/guide.html
 
