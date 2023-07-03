@@ -5,7 +5,12 @@ const { query, validationResult } = require('express-validator');
 
 // Create a user uning POST: "/api/auth/". doesn't require auth
 
-router.post('/', (req, res) =>{
+router.post('/', [
+    // Validations are to be written here in routes
+    query('name').isLength({min: 5}),
+    query('email').isEmail(),
+    query('password').isLength({min: 8})
+], (req, res) =>{
 
     console.log(req.body);
 
