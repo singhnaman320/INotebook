@@ -25,4 +25,6 @@ const UserSchema = new Schema({
 
 });
 
-module.exports = mongoose.model('user', UserSchema) // creating model from given exchema and export it. we will use it in routes
+const User = mongoose.model('user', UserSchema) // creating model from given exchema and export it. we will use it in routes
+User.createIndexes(); //Creating Indexes
+module.exports = User;
