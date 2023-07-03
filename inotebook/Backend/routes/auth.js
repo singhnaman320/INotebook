@@ -7,9 +7,9 @@ const { body, validationResult } = require('express-validator');
 
 router.post('/', [
     // Validations are to be written here in routes
-    body('name').isLength({min: 3}),
-    body('email').isEmail(),
-    body('password').isLength({min: 8})
+    body('name', 'Enter a valid name !').isLength({min: 3}),
+    body('email', 'Enter a valid email !').isEmail(),
+    body('password', 'Enter a valid password !').isLength({min: 8})
 ], (req, res) =>{
 
    const result = validationResult(req)
