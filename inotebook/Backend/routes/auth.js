@@ -44,6 +44,7 @@ router.post('/createUser', [
 
     } catch (error) {
         console.log(error.message)
+        // In real time we have to send this error to Logger
     }
 
 })
