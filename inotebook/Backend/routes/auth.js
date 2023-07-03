@@ -23,7 +23,11 @@ router.post('/', [
     email : req.body.email,
     password : req.body.password
 
-   }).then(user => res.json(user));
+   })
+   .then(user => res.json(user))
+   .catch(err => {console.log(err) // If you provide duplicate data it will provide you an error 
+        res.json({result: 'Please enter a unique data'})}
+    );
 
     // const user = User(req.body);
     // user.save()
