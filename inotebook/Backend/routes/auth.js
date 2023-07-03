@@ -10,24 +10,25 @@ router.post('/createUser', [
     body('name', 'Enter a valid name !').isLength({min: 3}),
     body('email', 'Enter a valid email !').isEmail(),
     body('password', 'Enter a valid password !').isLength({min: 8})
-], (req, res) =>{
+], async (req, res) =>{
     // if there are errors, return bad request and the errors
    const result = validationResult(req)
    if(!result.isEmpty()){
     return res.status(400).json({errors: result.array()});
    }
 
-   User.create({
+   let user = await User.create({
 
     name : req.body.name,
     email : req.body.email,
     password : req.body.password
 
    })
-   .then(user => res.json(user))
-   .catch(err => {console.log(err) // If you provide duplicate data it will provide you an error 
-        res.json({result: 'Please enter a unique data'})}
-    );
+   
+   //.then(user => res.json(user))
+   //.catch(err => {console.log(err) // If you provide duplicate data it will provide you an error 
+        //res.json({result: 'Please enter a unique data'})}
+    //);
 
     // const user = User(req.body);
     // user.save()
