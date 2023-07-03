@@ -26,5 +26,7 @@ const UserSchema = new Schema({
 });
 
 const User = mongoose.model('user', UserSchema) // creating model from given exchema and export it. we will use it in routes
-User.createIndexes(); //Creating Indexes
+// Creating Indexes : This index is created along unique element, here "email". Inforce that no more than 1 user have same email. We can use it as well or 
+// if don't want to create extra indexes in databse, we can write a seperate logic in auth.js
+// User.createIndexes();
 module.exports = User;
