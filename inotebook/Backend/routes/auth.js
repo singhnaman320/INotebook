@@ -17,6 +17,14 @@ router.post('/', [
     return res.status(400).json({errors: result.array()});
    }
 
+   User.create({
+
+    name : req.body.name,
+    email : req.body.email,
+    password : req.body.password
+
+   }).then(user => res.json(user));
+
     // const user = User(req.body);
     // user.save()
     res.send(req.body)
