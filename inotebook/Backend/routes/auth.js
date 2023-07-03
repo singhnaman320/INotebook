@@ -3,12 +3,7 @@ const router = express.Router();
 
 router.get('/', (req, res) =>{
 
-    obj = {
-        a: 'naman',
-        number: 55
-    }
-
-    res.json(obj);
+    console.log(req.body);
 })
 
 module.exports = router
