@@ -7,7 +7,7 @@ connectToMongo();
 // From : [https://expressjs.com/en/starter/hello-world.html]
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 5000
 
 app.use(express.json()) // If we want to use request body then we have to use this middleware
 
