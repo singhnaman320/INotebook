@@ -1,7 +1,7 @@
 const express = require('express') // import
 const notes = express.Router();
 
-notes.get('/', (req, res) =>{
+notes.get('/fetchallnotes', (req, res) =>{
 
     res.json([]);
 })
