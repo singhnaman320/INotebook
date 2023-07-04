@@ -12,7 +12,12 @@ router.get('/fetchallnotes', fetchUser, async (req, res) =>{
 })
 
 // ROUTE-2: Add a new Note using POST: "/api/auth/addnote". Login required
-router.get('/addnote', fetchUser, async (req, res) =>{
+router.get('/addnote', fetchUser, [
+    // Validations are to be written here in routes
+    body('name', 'Enter a valid name !').isLength({min: 3}),
+    body('email', 'Enter a valid email !').isEmail(),
+    body('password', 'Enter a valid password !').isLength({min: 8})
+    ], async (req, res) =>{
 
     
     res.json(notes);
