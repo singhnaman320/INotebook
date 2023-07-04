@@ -18,13 +18,28 @@ router.get('/addnote', fetchUser, [
     body('description', 'Description must be at least of 10 character.!').isLength({min : 10})
     ], async (req, res) =>{
 
-   // if there are errors, return bad request and the errors
-   const result = validationResult(req)
-   if(!result.isEmpty()){
-    return res.status(400).json({errors: result.array()});
-   }       
+    try {
+        
+        const{title, description, tag} = req.body;   
     
-    res.json(notes);
+        // if there are errors, return bad request and the errors
+        const result = validationResult(req)
+        if(!result.isEmpty()){
+            return res.status(400).json({errors: result.array()});
+        }       
+
+        // Creating new note
+        const note = new Note({
+            title, description, tag, user: req.user.id
+        })
+
+        const savedNotes = await note.save();
+
+        res.json(savedNotes);
+
+    } catch (error) {
+        
+    } 
 })
 
 module.exports = router
