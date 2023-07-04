@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 
 const JWT_SECRET = 'Cod!ngN@m@n$Singh@J@v@$cript'
 
-// ROUTE-1: Create a user uning POST: "/api/auth/createUser". doesn't require auth. No login required
+// ROUTE-1: Create a user using POST: "/api/auth/createUser". doesn't require auth. No login required
 
 router.post('/createUser', [
     // Validations are to be written here in routes
@@ -67,7 +67,7 @@ router.post('/createUser', [
 
 })
 
-// ROUTE-2: Authenticate a user uning POST: "/api/auth/login".
+// ROUTE-2: Authenticate a user using POST: "/api/auth/login".
 
 router.post('/login', [
     body('email', 'Enter a valid email !').isEmail(),
@@ -112,6 +112,16 @@ router.post('/login', [
     }
 })
 
-// ROUTE-2: Authenticate a user uning POST: "/api/auth/login".
+// ROUTE-2: Get LoggedIn user using POST: "/api/auth/login". Login required here.
+
+//we have to send JWT Token here
+
+try {
+    
+} catch (error) {
+    console.log(error.message)
+    res.status(500).send("Internal server error occured..!");
+}
+
 
 module.exports = router
