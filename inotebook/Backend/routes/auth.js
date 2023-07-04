@@ -48,7 +48,7 @@ router.post('/createUser', [
         const authToken = jwt.sign(data, JWT_SECRET) //Jwt signing
         console.log(authToken);
 
-        res.json(authToken)
+        res.json({authToken})
 
         //.then(user => res.json(user))
         //.catch(err => {console.log(err) // If you provide duplicate data it will provide you an error 
