@@ -1,3 +1,5 @@
-Install bcrypt: [npm i bcryptjs] : Besides incorporating a salt to protect against rainbow table attacks, bcrypt is an adaptive function: 
-over time, the iteration count can be increased to make it slower, so it remains resistant to brute-force search attacks even with 
-increasing computation power
+[] Run with nodemon by installing nodemon by [npm i -D nodemon]. For running: nodemon .\index.js. This index.js is express server
+
+[] Install bcrypt: [npm i bcryptjs] : Besides incorporating a salt to protect against rainbow table attacks, bcrypt is an adaptive function: 
+   over time, the iteration count can be increased to make it slower, so it remains resistant to brute-force search attacks even with 
+   increasing computation power

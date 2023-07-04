@@ -19,7 +19,4 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
-// Run with nodemon by installing nodemon by [npm i -D nodemon]
-// For running: nodemon .\index.js
-// This index.js is express server
 
