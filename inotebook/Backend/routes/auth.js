@@ -79,6 +79,14 @@ router.post('/login', [
     return res.status(400).json({errors: result.array()});
    }
 
+   // Extracting password from request body
+    const {email, password} = req.body;
+
+    try {
+        
+    } catch (error) {
+        
+    }
 })
 
 module.exports = router
