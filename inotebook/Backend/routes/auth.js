@@ -106,7 +106,9 @@ router.post('/login', [
         res.json({authToken})
 
     } catch (error) {
-        
+        console.log(error.message)
+        res.status(500).send("Some error occured..!");
+        // In real time we have to send this error to Logger
     }
 })
 
