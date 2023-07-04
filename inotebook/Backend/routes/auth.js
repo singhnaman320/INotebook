@@ -90,7 +90,7 @@ router.post('/login', [
         }
 
         // Comparing given password with saved password, compare() returns boolean value
-        const comparePassword = bcrypt.compare(password, user.password); 
+        const comparePassword = await bcrypt.compare(password, user.password); 
         if(!comparePassword){
             return res.status(400).json({error: "Please enter correct login credentials.!"})
         }
