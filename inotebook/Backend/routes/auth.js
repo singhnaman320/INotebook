@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 
 const JWT_SECRET = 'Cod!ngN@m@n$Singh@J@v@$cript'
 
-// Create a user uning POST: "/api/auth/createUser". doesn't require auth. No login required
+// ROUTE-1: Create a user uning POST: "/api/auth/createUser". doesn't require auth. No login required
 
 router.post('/createUser', [
     // Validations are to be written here in routes
@@ -67,7 +67,7 @@ router.post('/createUser', [
 
 })
 
-// Authenticate a user uning POST: "/api/auth/login".
+// ROUTE-2: Authenticate a user uning POST: "/api/auth/login".
 
 router.post('/login', [
     body('email', 'Enter a valid email !').isEmail(),
