@@ -112,16 +112,23 @@ router.post('/login', [
     }
 })
 
-// ROUTE-2: Get LoggedIn user using POST: "/api/auth/login". Login required here.
+// ROUTE-2: Get LoggedIn user using POST: "/api/auth/getUser". Login required here.
 
 //we have to send JWT Token here
 
-try {
-    
-} catch (error) {
-    console.log(error.message)
-    res.status(500).send("Internal server error occured..!");
-}
+router.post('/getUser', async (req, res) =>{
+
+    try {
+        
+
+
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).send("Internal server error occured..!");
+        // In real time we have to send this error to Logger
+    }
+})
+
 
 
 module.exports = router
