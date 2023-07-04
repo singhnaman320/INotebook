@@ -95,12 +95,15 @@ router.post('/login', [
             return res.status(400).json({error: "Please enter correct login credentials.!"})
         }
 
-        // Payload is data of user that we will send
+        // Payload is data of user that we will send. Similar as above data.
         const payload = {
             user:{
-                
+                id: user.id
             }
         }
+
+        const authToken = jwt.sign(payload, JWT_SECRET) //Jwt signing
+        res.json({authToken})
 
     } catch (error) {
         
