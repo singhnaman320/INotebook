@@ -6,7 +6,8 @@ const { Schema } = mongoose;
 const NotesSchema = new Schema({
  
     user:{
-        type: mongoose.Schema.Types.ObjectId // Associating notes to a given user
+        type: mongoose.Schema.Types.ObjectId, // Associating notes to a given user
+        ref: 'user' // this reference is given for User Model (line 28)
     },
     title: {
         type: String,
