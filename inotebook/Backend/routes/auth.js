@@ -112,4 +112,6 @@ router.post('/login', [
     }
 })
 
+// ROUTE-2: Authenticate a user uning POST: "/api/auth/login".
+
 module.exports = router
