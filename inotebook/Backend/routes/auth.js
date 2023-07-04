@@ -71,10 +71,9 @@ router.post('/createUser', [
 
 router.post('/login', [
     body('email', 'Enter a valid email !').isEmail(),
-    body('password', 'Enter a valid password !').isLength({min: 8})
+    body('password', 'Password can not be blank!').exists()
 ], async (req, res) =>{
 
-    // if there are errors, return bad request and the errors
    const result = validationResult(req)
    if(!result.isEmpty()){
     return res.status(400).json({errors: result.array()});
