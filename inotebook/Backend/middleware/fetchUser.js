@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const fetchuser = (req, res, next) =>{   // these params exctaly represents "getUser" params in auth.js like next here is async function there.
+const fetchUser = (req, res, next) =>{   // these params exctaly represents "getUser" params in auth.js like next here is async function there.
 
     // Get the user from the jwt token and add id to requested object
     const token = req.header('auth-token') // auth-token is name of header we have given

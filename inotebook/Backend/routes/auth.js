@@ -4,6 +4,7 @@ const User = require('../models/User')
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const fetchUser = require('../middleware/fetchUser')
 
 const JWT_SECRET = 'Cod!ngN@m@n$Singh@J@v@$cript'
 
@@ -120,7 +121,8 @@ router.post('/getUser', fetchUser, async (req, res) =>{
 
     try {
         
-
+        userId = req.user.id
+        const user = await User.findById(userId).select("-password") // Password should not be fetched in get request
 
     } catch (error) {
         console.log(error.message)
@@ -128,7 +130,6 @@ router.post('/getUser', fetchUser, async (req, res) =>{
         // In real time we have to send this error to Logger
     }
 })
-
 
 
 module.exports = router
