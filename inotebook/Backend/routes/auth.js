@@ -79,11 +79,15 @@ router.post('/login', [
     return res.status(400).json({errors: result.array()});
    }
 
-   // Extracting password from request body
+   // Extracting password from request.body
     const {email, password} = req.body;
 
     try {
         
+        let user = User.findOne({email});
+        if(!user){
+            return res.status(400).json({error: "Please enter correct login credentials.!"})
+        }
     } catch (error) {
         
     }
