@@ -7,8 +7,16 @@ const { body, validationResult } = require('express-validator');
 // ROUTE-1: Fetch all the notes using GET: "/api/auth/fetchallnotes". Login required
 router.get('/fetchallnotes', fetchUser, async (req, res) =>{
 
-    const notes = await Notes.find({user: req.user.id})
-    res.json(notes);
+    try {
+        const notes = await Notes.find({user: req.user.id})
+        res.json(notes);
+
+    } catch (error) {
+        
+        console.log(error.message)
+        res.status(500).send("Some error occured..!");
+    }
+    
 })
 
 // ROUTE-2: Add a new Note using POST: "/api/auth/addnote". Login required
@@ -39,6 +47,8 @@ router.get('/addnote', fetchUser, [
 
     } catch (error) {
         
+        console.log(error.message)
+        res.status(500).send("Some error occured..!");
     } 
 })
 
