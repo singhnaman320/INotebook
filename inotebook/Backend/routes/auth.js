@@ -67,4 +67,19 @@ router.post('/createUser', [
 
 })
 
+// Authenticate a user uning POST: "/api/auth/login".
+
+router.post('/login', [
+    body('email', 'Enter a valid email !').isEmail(),
+    body('password', 'Enter a valid password !').isLength({min: 8})
+], async (req, res) =>{
+
+    // if there are errors, return bad request and the errors
+   const result = validationResult(req)
+   if(!result.isEmpty()){
+    return res.status(400).json({errors: result.array()});
+   }
+
+})
+
 module.exports = router
