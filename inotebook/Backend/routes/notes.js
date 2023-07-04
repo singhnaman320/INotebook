@@ -4,9 +4,10 @@ const fetchUser = require('../middleware/fetchUser')
 const Notes = require('../models/Notes')
 
 // ROUTE-1: Fetch all the notes using GET: "/api/auth/fetchallnotes". Login required
-notes.get('/fetchallnotes', (req, res) =>{
+router.get('/fetchallnotes', fetchUser, async (req, res) =>{
 
-    res.json([]);
+    const notes = await Notes.find({user: req.user.id})
+    res.json(notes);
 })
 
 module.exports = router
