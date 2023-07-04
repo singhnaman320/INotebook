@@ -116,7 +116,7 @@ router.post('/login', [
 
 //we have to send JWT Token here
 
-router.post('/getUser', async (req, res) =>{
+router.post('/getUser', fetchUser, async (req, res) =>{
 
     try {
         
