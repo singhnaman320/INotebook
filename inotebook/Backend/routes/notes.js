@@ -18,6 +18,11 @@ router.get('/addnote', fetchUser, [
     body('description', 'Description must be at least of 10 character.!').isLength({min : 10})
     ], async (req, res) =>{
 
+   // if there are errors, return bad request and the errors
+   const result = validationResult(req)
+   if(!result.isEmpty()){
+    return res.status(400).json({errors: result.array()});
+   }       
     
     res.json(notes);
 })
