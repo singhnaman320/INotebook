@@ -4,4 +4,4 @@
    over time, the iteration count can be increased to make it slower, so it remains resistant to brute-force search attacks even with 
    increasing computation power ------> [https://www.npmjs.com/package/bcryptjs]
 
-[] Install JWT token package: 
+[] Install JWT token package: [https://www.npmjs.com/package/jsonwebtoken]

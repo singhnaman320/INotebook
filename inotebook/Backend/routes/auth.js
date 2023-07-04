@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/User')
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 // Create a user uning POST: "/api/auth/createUser". doesn't require auth. No login required
 
