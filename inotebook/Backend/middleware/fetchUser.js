@@ -22,7 +22,6 @@ const fetchUser = (req, res, next) =>{   // these params exctaly represents "get
         res.status(401).send({error: "Please authenticate using a valid token"});
     }
 
-    
 }
 
 module.exports = fetchUser;
