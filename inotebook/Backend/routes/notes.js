@@ -1,14 +1,14 @@
 const express = require('express') // import
 const router = express.Router();
 const fetchUser = require('../middleware/fetchUser')
-const Notes = require('../models/Notes')
+const Note = require('../models/Note')
 const { body, validationResult } = require('express-validator');
 
-// ROUTE-1: Fetch all the notes using GET: "/api/auth/fetchallnotes". Login required
+// ROUTE-1: Fetch all the notes using GET: "/api/auth/fetchallnotes". Login required (Token must aslo be sent with he headers)
 router.get('/fetchallnotes', fetchUser, async (req, res) =>{
 
     try {
-        const notes = await Notes.find({user: req.user.id})
+        const notes = await Note.find({user: req.user.id})
         res.json(notes);
 
     } catch (error) {
@@ -19,11 +19,11 @@ router.get('/fetchallnotes', fetchUser, async (req, res) =>{
     
 })
 
-// ROUTE-2: Add a new Note using POST: "/api/auth/addnote". Login required
-router.get('/addnote', fetchUser, [
+// ROUTE-2: Add a new Note using POST: "/api/auth/addnote". Login required (Token must aslo be sent with he headers)
+router.post('/addnote', fetchUser, [
     // Validations are to be written here in routes
     body('title', 'Enter a valid title.!').isLength({min : 3}),
-    body('description', 'Description must be at least of 10 character.!').isLength({min : 10})
+    body('description', 'Description must be at least of 10 character.!').isLength({min : 5})
     ], async (req, res) =>{
 
     try {
