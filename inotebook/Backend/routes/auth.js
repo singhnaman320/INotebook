@@ -123,6 +123,7 @@ router.post('/getUser', fetchUser, async (req, res) =>{
         
         userId = req.user.id
         const user = await User.findById(userId).select("-password") // Password should not be fetched in get request
+        res.send(user) // must send response
 
     } catch (error) {
         console.log(error.message)
