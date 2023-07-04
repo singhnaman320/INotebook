@@ -88,6 +88,10 @@ router.post('/login', [
         if(!user){
             return res.status(400).json({error: "Please enter correct login credentials.!"})
         }
+
+        // Comparing given password with saved password
+        const comparePassword = bcrypt.compare(password, user.password); 
+
     } catch (error) {
         
     }
