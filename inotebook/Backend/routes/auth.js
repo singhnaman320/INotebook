@@ -107,7 +107,7 @@ router.post('/login', [
 
     } catch (error) {
         console.log(error.message)
-        res.status(500).send("Some error occured..!");
+        res.status(500).send("Internal server error occured..!");
         // In real time we have to send this error to Logger
     }
 })
