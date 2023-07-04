@@ -5,6 +5,9 @@ const { Schema } = mongoose;
 
 const NotesSchema = new Schema({
  
+    user:{
+        type: mongoose.Schema.Types.ObjectId // Associating notes to a given user
+    },
     title: {
         type: String,
         required: true
