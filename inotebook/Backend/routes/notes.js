@@ -10,4 +10,11 @@ router.get('/fetchallnotes', fetchUser, async (req, res) =>{
     res.json(notes);
 })
 
+// ROUTE-2: Add a new Note using POST: "/api/auth/addnote". Login required
+router.get('/addnote', fetchUser, async (req, res) =>{
+
+    
+    res.json(notes);
+})
+
 module.exports = router
