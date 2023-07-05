@@ -1,1 +1,2 @@
-[npm install react-router-dom concurrently] :It allows multiple applications to be executed or run simultaneously, thus increasing efficiency and the total output of workstations. 
+[npm install react-router-dom concurrently] :It allows multiple applications to be executed or run simultaneously, thus increasing efficiency and the total output of workstations.
+Means we can run both frontend and backend together. To run both lets add a script "both" inside scripts in outer package.json
