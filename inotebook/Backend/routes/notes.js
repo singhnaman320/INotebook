@@ -76,7 +76,7 @@ router.put('/updatenote/:id', fetchUser, async (req, res) =>{
 
         // Update
         note = await Note.findByIdAndUpdate(req.params.id, {$set : newNote}, {new : true}) // {new : true} means if new contact come then it will also be created
-        res.json(note)
+        res.json({note})
 
     } catch (error) {
         
@@ -103,7 +103,7 @@ router.delete('/deletenote/:id', fetchUser, async (req, res) =>{
 
         // Update
         note = await Note.findByIdAndDelete(req.params.id) // {new : true} means if new contact come then it will also be created
-        res.json(note)
+        res.json({"Success" : `Note has been deleted with given id ${req.params.id}`})
 
     } catch (error) {
         
