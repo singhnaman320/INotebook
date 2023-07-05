@@ -4,7 +4,7 @@ const fetchUser = require('../middleware/fetchUser')
 const Note = require('../models/Note')
 const { body, validationResult } = require('express-validator');
 
-// ROUTE-1: Fetch all the notes using GET: "/api/auth/fetchallnotes". Login required (Token must also be sent with he headers)
+// ROUTE-1: Fetch all the notes using GET: "/api/notes/fetchallnotes". Login required (Token must also be sent with he headers)
 router.get('/fetchallnotes', fetchUser, async (req, res) =>{
 
     try {
@@ -19,7 +19,7 @@ router.get('/fetchallnotes', fetchUser, async (req, res) =>{
     
 })
 
-// ROUTE-2: Add a new Note using POST: "/api/auth/addnote". Login required (Token must also be sent with he headers)
+// ROUTE-2: Add a new Note using POST: "/api/notes/addnote". Login required (Token must also be sent with he headers)
 router.post('/addnote', fetchUser, [
     // Validations are to be written here in routes
     body('title', 'Enter a valid title.!').isLength({min : 3}),
@@ -52,7 +52,7 @@ router.post('/addnote', fetchUser, [
     } 
 })
 
-// ROUTE-3: Update a existing Note using POST: "/api/auth/updatenote". Login required (Token must also be sent with he headers)
+// ROUTE-3: Update a existing Note using POST: "/api/notes/updatenote". Login required (Token must also be sent with he headers)
 router.put('/updatenote/:id', fetchUser, async (req, res) =>{
 
     try {
@@ -66,11 +66,11 @@ router.put('/updatenote/:id', fetchUser, async (req, res) =>{
         if(tag){newNote.tag = tag}
 
         // Find the note to be update and update it
-        const note = Note.findById(req.params.id) // It is params id ":id"
+        let note = await Note.findById(req.params.id) // It is params id ":id"
         if(!note){return res.status(400).send("Sorry, Note not found.!")}
 
         // Checking particular user own this note or not
-        if(note.user.tostring() !== req.user.id){
+        if(note.user.toString() !== req.user.id){
             return res.status(401).send("Sorry, You are not authorized to access this note!")
         }
 
