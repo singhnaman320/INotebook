@@ -57,6 +57,7 @@ router.put('/updatenote/:id', fetchUser, async (req, res) =>{
 
     try {
        
+        const {title, description, tag} = req.body
 
     } catch (error) {
         
