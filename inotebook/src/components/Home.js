@@ -1,4 +1,4 @@
-// rfac -> react arrow functional component
+// rface -> react arrow functional component with export
 import React from 'react'  
 
 const Home = () => {
