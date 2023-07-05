@@ -4,7 +4,7 @@ const fetchUser = require('../middleware/fetchUser')
 const Note = require('../models/Note')
 const { body, validationResult } = require('express-validator');
 
-// ROUTE-1: Fetch all the notes using GET: "/api/auth/fetchallnotes". Login required (Token must aslo be sent with he headers)
+// ROUTE-1: Fetch all the notes using GET: "/api/auth/fetchallnotes". Login required (Token must also be sent with he headers)
 router.get('/fetchallnotes', fetchUser, async (req, res) =>{
 
     try {
@@ -19,7 +19,7 @@ router.get('/fetchallnotes', fetchUser, async (req, res) =>{
     
 })
 
-// ROUTE-2: Add a new Note using POST: "/api/auth/addnote". Login required (Token must aslo be sent with he headers)
+// ROUTE-2: Add a new Note using POST: "/api/auth/addnote". Login required (Token must also be sent with he headers)
 router.post('/addnote', fetchUser, [
     // Validations are to be written here in routes
     body('title', 'Enter a valid title.!').isLength({min : 3}),
@@ -51,5 +51,8 @@ router.post('/addnote', fetchUser, [
         res.status(500).send("Some error occured..!");
     } 
 })
+
+// ROUTE-3: Update a existing Note using POST: "/api/auth/updatenote". Login required (Token must also be sent with he headers)
+
 
 module.exports = router
