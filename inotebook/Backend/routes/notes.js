@@ -70,7 +70,9 @@ router.put('/updatenote/:id', fetchUser, async (req, res) =>{
         if(!note){return res.status(400).send("Sorry, Note not found.!")}
 
         // Checking particular user own this note or not
-
+        if(note.user.tostring() !== req.user.id){
+            return res.status(401).send("Sorry, You are not authorized to access this note!")
+        }
 
     } catch (error) {
         
