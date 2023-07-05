@@ -1,0 +1,1 @@
+[npm install react-router-dom concurrently] :It allows multiple applications to be executed or run simultaneously, thus increasing efficiency and the total output of workstations. 
