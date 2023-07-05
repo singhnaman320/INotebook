@@ -53,7 +53,7 @@ router.post('/addnote', fetchUser, [
 })
 
 // ROUTE-3: Update a existing Note using POST: "/api/auth/updatenote". Login required (Token must also be sent with he headers)
-router.post('/updatenote', fetchUser, [
+router.put('/updatenote/:id', fetchUser, [
     // Validations are to be written here in routes
     body('title', 'Enter a valid title.!').isLength({min : 3}),
     body('description', 'Description must be at least of 10 character.!').isLength({min : 5})
