@@ -59,6 +59,10 @@ router.put('/updatenote/:id', fetchUser, async (req, res) =>{
        
         const {title, description, tag} = req.body
 
+        // create a new object
+        const newNote = {};
+        if(title){newNote.title = title}
+
     } catch (error) {
         
         console.log(error.message)
