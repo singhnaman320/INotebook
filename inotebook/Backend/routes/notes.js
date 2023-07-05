@@ -92,13 +92,7 @@ router.delete('/deletenote/:id', fetchUser, async (req, res) =>{
        
         const {title, description, tag} = req.body
 
-        // create a new object
-        const newNote = {};
-        if(title){newNote.title = title}
-        if(description){newNote.description = description}
-        if(tag){newNote.tag = tag}
-
-        // Find the note to be update and update it
+        // Find the note to be DELETED and DELETE it
         let note = await Note.findById(req.params.id) // It is params id ":id"
         if(!note){return res.status(400).send("Sorry, Note not found.!")}
 
@@ -108,7 +102,7 @@ router.delete('/deletenote/:id', fetchUser, async (req, res) =>{
         }
 
         // Update
-        note = await Note.findByIdAndUpdate(req.params.id, {$set : newNote}, {new : true}) // {new : true} means if new contact come then it will also be created
+        note = await Note.findByIdAndDelete(req.params.id) // {new : true} means if new contact come then it will also be created
         res.json(note)
 
     } catch (error) {
