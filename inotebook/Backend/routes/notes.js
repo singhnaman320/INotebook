@@ -52,7 +52,7 @@ router.post('/addnote', fetchUser, [
     } 
 })
 
-// ROUTE-3: Update a existing Note using POST: "/api/notes/updatenote". Login required (Token must also be sent with he headers)
+// ROUTE-3: Update a existing Note using PUT: "/api/notes/updatenote". Login required (Token must also be sent with he headers)
 router.put('/updatenote/:id', fetchUser, async (req, res) =>{
 
     try {
@@ -85,8 +85,8 @@ router.put('/updatenote/:id', fetchUser, async (req, res) =>{
     } 
 })
 
-// ROUTE-4: Delete a existing Note using POST: "/api/notes/deletenote". Login required (Token must also be sent with he headers)
-router.put('/deletenote/:id', fetchUser, async (req, res) =>{
+// ROUTE-4: Delete a existing Note using DELETE: "/api/notes/deletenote". Login required (Token must also be sent with he headers)
+router.delete('/deletenote/:id', fetchUser, async (req, res) =>{
 
     try {
        
