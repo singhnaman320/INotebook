@@ -74,6 +74,10 @@ router.put('/updatenote/:id', fetchUser, async (req, res) =>{
             return res.status(401).send("Sorry, You are not authorized to access this note!")
         }
 
+        // Update
+        note = await Note.findByIdAndUpdate(req.params.id, {$set : newNote}, {new : true}) // {new : true} means if new contact come then it will also be created
+        res.json(note)
+
     } catch (error) {
         
         console.log(error.message)
