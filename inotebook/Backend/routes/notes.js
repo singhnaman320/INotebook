@@ -85,5 +85,38 @@ router.put('/updatenote/:id', fetchUser, async (req, res) =>{
     } 
 })
 
+// ROUTE-4: Delete a existing Note using POST: "/api/notes/deletenote". Login required (Token must also be sent with he headers)
+router.put('/deletenote/:id', fetchUser, async (req, res) =>{
+
+    try {
+       
+        const {title, description, tag} = req.body
+
+        // create a new object
+        const newNote = {};
+        if(title){newNote.title = title}
+        if(description){newNote.description = description}
+        if(tag){newNote.tag = tag}
+
+        // Find the note to be update and update it
+        let note = await Note.findById(req.params.id) // It is params id ":id"
+        if(!note){return res.status(400).send("Sorry, Note not found.!")}
+
+        // Checking particular user own this note or not
+        if(note.user.toString() !== req.user.id){
+            return res.status(401).send("Sorry, You are not authorized to access this note!")
+        }
+
+        // Update
+        note = await Note.findByIdAndUpdate(req.params.id, {$set : newNote}, {new : true}) // {new : true} means if new contact come then it will also be created
+        res.json(note)
+
+    } catch (error) {
+        
+        console.log(error.message)
+        res.status(500).send("Some error occured..!");
+    } 
+})
+
 
 module.exports = router
