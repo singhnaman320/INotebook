@@ -1,10 +1,12 @@
 // import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
     <div className="App">
-      <h1>This is INotebook</h1>
+      <NavBar/>
+      <h1>INotebook - Your personal notebook</h1>
     </div>
   );
 }
