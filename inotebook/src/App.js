@@ -14,7 +14,6 @@ function App() {
         <Router>
           <NavBar />
           <div className="container">
-            <h1>INotebook - Your personal notebook</h1>
             <Switch>
               <Route exact path="/">
                 <Home />
