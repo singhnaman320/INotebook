@@ -8,7 +8,7 @@ const About = () => {
 
   return (
     <div>
-      This is About {usage.name}
+      This is About {usage.name} and he is persuing {usage.education}
     </div>
   )
 }
