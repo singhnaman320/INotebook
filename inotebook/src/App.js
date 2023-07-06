@@ -1,10 +1,10 @@
 // import logo from './logo.svg';
-import './App.css';
-import NavBar from './components/NavBar';
-import Home from './components/Home';
-import About from './components/About';
-import{BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import NoteState from './context/notes/NoteState';
+import "./App.css";
+import NavBar from "./components/NavBar";
+import Home from "./components/Home";
+import About from "./components/About";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import NoteState from "./context/notes/NoteState";
 
 function App() {
   return (
@@ -12,15 +12,15 @@ function App() {
       {/* All variables of Notestate will be available every component here */}
       <NoteState>
         <Router>
-          <NavBar/>
+          <NavBar />
           <div className="container">
             <h1>INotebook - Your personal notebook</h1>
             <Switch>
               <Route exact path="/">
-                <Home/>
+                <Home />
               </Route>
               <Route exact path="/about">
-                <About/>
+                <About />
               </Route>
             </Switch>
           </div>
