@@ -25,7 +25,9 @@ const Home = () => {
         </form>
       </div>
 
-      <h2>Your Notes</h2>
+      <div className="container">
+        <h2>Your Notes</h2>
+      </div>
     </div>
   )
 }
