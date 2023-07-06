@@ -1,4 +1,4 @@
-import NoteContext from './noteContext'
+import noteContext from './noteContext'
 
 const NoteState = (props) => {
 
@@ -11,9 +11,9 @@ const NoteState = (props) => {
 
     return(
 
-        <NoteContext.provider value = {state}>
+        <noteContext.Provider value = {state}>
             {props.children}
-        </NoteContext.provider>
+        </noteContext.Provider>
     )
 }
 
