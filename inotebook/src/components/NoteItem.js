@@ -9,6 +9,8 @@ const NoteItem = (props) => {
             <div className="card-body">
                 <h5 className="card-title">{note.title}</h5>
                 <p className="card-text">{note.description}</p>
+                <i class="fa-sharp fa-solid fa-trash"></i> {/* For delete icon */}
+                <i class="fa-solid fa-pen-to-square mx-2"></i> {/* For edit icon from*/}
             </div>
         </div>
     </div>
