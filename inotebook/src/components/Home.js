@@ -34,7 +34,7 @@ const Home = () => {
         <h2>Your Notes</h2>
         {notes.map((note) =>{
 
-          return notes.title;
+          return note.title;
 
         })}
       </div>
