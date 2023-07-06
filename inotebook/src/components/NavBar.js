@@ -1,7 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import {React, useEffect} from 'react'
+import { Link , useLocation} from 'react-router-dom'
 
 const NavBar = () =>{
+
+  // we have used useLocation here so that when we click on Home this will highlight and when we click on About this will highlight 
+  let location = useLocation();
+  useEffect(() => {
+
+    console.log(location);
+
+  }, [location]);
+
   return (
     <div>
         <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
