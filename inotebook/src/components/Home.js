@@ -7,7 +7,7 @@ const Home = () => {
       <div className="container my-3">
         <h2>|| Add your note here ||</h2>
 
-        <form>
+        <form className='my-3'>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
             <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
