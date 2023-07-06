@@ -1,8 +1,9 @@
 import noteContext from './noteContext'
+import { useState } from 'react'
 
 const NoteState = (props) => {
 
-    const notes = [
+    const notesInitial = [
         {
           "_id": "64a4388a7352480e0b900812",
           "user": "64a3c68b181958b6c96ab250",
@@ -22,10 +23,12 @@ const NoteState = (props) => {
           "__v": 0
         }
       ]
-      
+
+      const [notes, setNotes] = useState(notesInitial)
+
     return(
 
-        <noteContext.Provider value = {{}}>
+        <noteContext.Provider value = {{notes, setNotes}}>
             {props.children}
         </noteContext.Provider>
     )
