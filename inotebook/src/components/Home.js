@@ -5,8 +5,8 @@ const Home = () => {
   return (
     <div>
       <div className="container my-3">
-        <h1>|| Add your note here ||</h1>
-        
+        <h2>|| Add your note here ||</h2>
+
         <form>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
@@ -25,7 +25,7 @@ const Home = () => {
         </form>
       </div>
 
-      <h1>Your Notes</h1>
+      <h2>Your Notes</h2>
     </div>
   )
 }
