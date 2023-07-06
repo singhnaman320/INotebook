@@ -9,6 +9,7 @@ import NoteState from './context/notes/NoteState';
 function App() {
   return (
     <>
+      {/* All variables of Notestate will be available every component here */}
       <NoteState>
         <Router>
           <NavBar/>
