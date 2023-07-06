@@ -2,6 +2,27 @@ import noteContext from './noteContext'
 
 const NoteState = (props) => {
 
+    const notes = [
+        {
+          "_id": "64a4388a7352480e0b900812",
+          "user": "64a3c68b181958b6c96ab250",
+          "title": "React JS Advanced",
+          "description": "Advanced React JS is used to make better frontend application",
+          "tag": "Advanced Frontend programming",
+          "date": "2023-07-04T15:19:38.195Z",
+          "__v": 0
+        },
+        {
+          "_id": "64a5463e2d9138e21d8e7f40",
+          "user": "64a3c68b181958b6c96ab250",
+          "title": "React JS",
+          "description": "React is used to make better frontend application",
+          "tag": "Frontend programming",
+          "date": "2023-07-05T10:30:22.356Z",
+          "__v": 0
+        }
+      ]
+      
     return(
 
         <noteContext.Provider value = {{}}>
