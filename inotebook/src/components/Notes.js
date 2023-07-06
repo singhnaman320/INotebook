@@ -10,7 +10,7 @@ const Notes = () => {
 
   return (
 
-    <div className="container">
+    <div className="container row my-3">
         <h2>Your Notes</h2>
         {notes.map((note) =>{
 
