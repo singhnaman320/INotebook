@@ -6,7 +6,7 @@ const NoteState = (props) => {
     return(
 
         <NoteState.provider>
-            props.children;
+            {props.children}
         </NoteState.provider>
     )
 }
