@@ -1,13 +1,13 @@
 // This is backend part and act as a seperate unit
-
+var cors = require('cors')
+const express = require('express') // From : [https://expressjs.com/en/starter/hello-world.html]
 const connectToMongo = require('./db')
 
 connectToMongo();
-
-// From : [https://expressjs.com/en/starter/hello-world.html]
-const express = require('express')
 const app = express()
 const port = 5000
+ 
+app.use(cors())
 
 app.use(express.json()) // If we want to use request body then we have to use this middleware
 
