@@ -55,10 +55,13 @@ const NoteState = (props) => {
 
       // Add a note
       const addNote = () => {
-        
+
       }
 
       // Delete a note
+      const deleteNote = () => {
+        
+      }
 
       // Edit a note
 
