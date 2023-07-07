@@ -6,7 +6,7 @@ const Notes = () => {
 
   
   const context = useContext(noteContext);
-  const{notes, setNotes} = context;
+  const{notes, addNote} = context;
 
   return (
 

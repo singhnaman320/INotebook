@@ -57,7 +57,15 @@ const NoteState = (props) => {
       const addNote = (title, description, tag) => {
 
         // TO DO: API CALL
-        note = null;
+        note = {
+          "_id": "64a5463e2d91378e21d8e7f40",
+          "user": "64a3c68b181958b6c96ab250",
+          "title": "React JS Added",
+          "description": "React is used to make better frontend application Added",
+          "tag": "Frontend programming",
+          "date": "2023-07-05T10:30:22.356Z",
+          "__v": 0
+        };
         setNotes(notes.push(note));
       }
 
