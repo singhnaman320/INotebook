@@ -57,7 +57,7 @@ const NoteState = (props) => {
       const addNote = (title, description, tag) => {
 
         // TO DO: API CALL
-        note = {
+        const note = {
           "_id": "64a5463e2d91378e21d8e7f40",
           "user": "64a3c68b181958b6c96ab250",
           "title": "React JS Added",

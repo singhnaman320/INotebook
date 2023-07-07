@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { React, useContext, useState } from 'react'
 import noteContext from '../context/notes/noteContext';
 
 const AddNote = () => {
@@ -12,11 +12,11 @@ const AddNote = () => {
 
     }
 
-    const onChange = () =>{
+    const onChange = (event) =>{
         // ... -> spread operator
 
         // means all the values which is inside this note object will be there but the properties written after that must be overwritten 
-        setNote({...note, })
+        setNote({...note, [event.target.name]: event.target.value})
     }
 
     return (
@@ -30,8 +30,8 @@ const AddNote = () => {
                     <input type="text" className="form-control" id="title" name="title" aria-describedby="emailHelp" onChange={onChange}/>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="desc" className="form-label">Description</label>
-                    <input type="text" className="form-control" id="desc"  name="desc" onChange={onChange}/>
+                    <label htmlFor="description" className="form-label">Description</label>
+                    <input type="text" className="form-control" id="description"  name="description" onChange={onChange}/>
                 </div>
                 <div className="mb-3 form-check">
                     <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
