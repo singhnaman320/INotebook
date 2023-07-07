@@ -5,11 +5,6 @@ const NavBar = () =>{
 
   // we have used useLocation here so that when we click on Home this will highlight and when we click on About this will highlight 
   let location = useLocation();
-  useEffect(() => {
-
-    console.log(location.pathname);
-
-  }, [location]);
 
   return (
     <div>
