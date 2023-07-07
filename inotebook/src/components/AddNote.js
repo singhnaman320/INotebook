@@ -13,7 +13,10 @@ const AddNote = () => {
     }
 
     const onChange = () =>{
+        // ... -> spread operator
 
+        // means all the values which is inside this note object will be there but the properties written after that must be overwritten 
+        setNote({...note, })
     }
 
     return (
