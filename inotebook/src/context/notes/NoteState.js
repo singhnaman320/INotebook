@@ -83,7 +83,7 @@ const NoteState = (props) => {
       }
 
       // Edit a note
-      const editNote = () => {
+      const editNote = (id, title, description, tag) => {
         
       }
 
