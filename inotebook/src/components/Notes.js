@@ -14,7 +14,7 @@ const Notes = () => {
         <h2>Your Notes</h2>
         {notes.map((note) =>{
 
-          return <NoteItem note = {note}/>
+          return <NoteItem key = {note._id} note = {note}/>  // _id come from Mongodb
 
         })}
     </div>
