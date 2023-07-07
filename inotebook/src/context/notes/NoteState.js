@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 const NoteState = (props) => {
 
+    const host = "http://localhost:5000"
     const notesInitial = [
         {
           "_id": "64a4388a7352480e0b900812",
@@ -83,10 +84,19 @@ const NoteState = (props) => {
       }
 
       // Edit a note
-      const editNote = (id, title, description, tag) => {
+      const editNote = async(id, title, description, tag) => {
 
         // API call
-        
+        url = 
+        const response = await fetch(`${host}/api/notes/updatenote/64a508ac2c61959de86ef82b`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+        return response.json();
+      }  
 
         // Logic to edit in client
         for (let index = 0; index < notes.length; index++) {
