@@ -6,7 +6,13 @@ const AddNote = () => {
     const context = useContext(noteContext);
     const{addNote} = context;
 
+    const [note, setNote] = useState({title: "", description:"", tag:""})
+
     const handleClick = () => {
+
+    }
+
+    const onChange = () =>{
 
     }
 
@@ -21,8 +27,8 @@ const AddNote = () => {
                     <input type="text" className="form-control" id="title" name="title" aria-describedby="emailHelp" onChange={onChange}/>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1"  onChange={onChange}/>
+                    <label htmlFor="desc" className="form-label">Description</label>
+                    <input type="text" className="form-control" id="desc"  name="desc" onChange={onChange}/>
                 </div>
                 <div className="mb-3 form-check">
                     <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
