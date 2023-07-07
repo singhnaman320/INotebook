@@ -14,7 +14,7 @@ function App() {
       <NoteState>
         <Router>
           <NavBar />
-          <Alert/>
+          <Alert message = "Welcome to INotebook "/>
           <div className="container">
             <Switch>
               <Route exact path="/">
