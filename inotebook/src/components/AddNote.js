@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import noteContext from '../context/notes/noteContext';
 
 const AddNote = () => {
+
+  const context = useContext(noteContext);
+  const{addNote} = context;
+
   return (
     
     <div className="container my-3">
@@ -20,7 +25,7 @@ const AddNote = () => {
             <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
             <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
           </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <button type="submit" className="btn btn-primary" onClick={handleClick}>Submit</button>
         </form>
     </div>
   )
