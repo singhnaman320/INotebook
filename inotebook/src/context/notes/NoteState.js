@@ -64,6 +64,9 @@ const NoteState = (props) => {
       }
 
       // Edit a note
+      const editNote = () => {
+        
+      }
 
     return(
 
