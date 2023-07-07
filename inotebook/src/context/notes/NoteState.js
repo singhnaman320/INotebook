@@ -4,55 +4,27 @@ import { useState } from 'react'
 const NoteState = (props) => {
 
     const host = "http://localhost:5000"
-    const notesInitial = [
-        {
-          "_id": "64a4388a7352480e0b900812",
-          "user": "64a3c68b181958b6c96ab250",
-          "title": "React JS Advanced",
-          "description": "Advanced React JS is used to make better frontend application",
-          "tag": "Advanced Frontend programming",
-          "date": "2023-07-04T15:19:38.195Z",
-          "__v": 0
-        },
-        {
-          "_id": "64a5463e2d9138e21d8e07f40",
-          "user": "64a3c68b181958b6c96ab250",
-          "title": "React JS",
-          "description": "React is used to make better frontend application",
-          "tag": "Frontend programming",
-          "date": "2023-07-05T10:30:22.356Z",
-          "__v": 0
-        },
-        {
-          "_id": "64a5463e2d91438e21d8e7f40",
-          "user": "64a3c68b181958b6c96ab250",
-          "title": "React JS",
-          "description": "React is used to make better frontend application",
-          "tag": "Frontend programming",
-          "date": "2023-07-05T10:30:22.356Z",
-          "__v": 0
-        },
-        {
-          "_id": "64a5463e2d9138e21d58e7f40",
-          "user": "64a3c68b181958b6c96ab250",
-          "title": "React JS",
-          "description": "React is used to make better frontend application",
-          "tag": "Frontend programming",
-          "date": "2023-07-05T10:30:22.356Z",
-          "__v": 0
-        },
-        {
-          "_id": "64a5463e2d91378e21d8e7f40",
-          "user": "64a3c68b181958b6c96ab250",
-          "title": "React JS",
-          "description": "React is used to make better frontend application",
-          "tag": "Frontend programming",
-          "date": "2023-07-05T10:30:22.356Z",
-          "__v": 0
-        }
-      ]
+    const notesInitial = []
 
       const [notes, setNotes] = useState(notesInitial)
+
+      // get all notes
+      const getNotes = async() => {
+
+        // API call
+        const response = await fetch(`${host}/api/notes/fetchallnotes`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRhM2M2OGIxODE5NThiNmM5NmFiMjUwIn0sImlhdCI6MTY4ODQ4MzM5OH0.OvvYw2PbMMoMCeP1jL-1vZUYrqZ8LYpJi3ycDQfTqGY"
+          },
+        });
+      
+        const json = await response.json();
+        console.log(json)
+        setNotes(json)
+      }
+
 
       // Add a note
       const addNote = async(title, description, tag) => {
@@ -106,7 +78,7 @@ const NoteState = (props) => {
 
         // API call
         const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
             "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRhM2M2OGIxODE5NThiNmM5NmFiMjUwIn0sImlhdCI6MTY4ODQ4MzM5OH0.OvvYw2PbMMoMCeP1jL-1vZUYrqZ8LYpJi3ycDQfTqGY"
@@ -133,7 +105,7 @@ const NoteState = (props) => {
 
     return(
 
-        <noteContext.Provider value = {{notes, addNote, deleteNote, editNote}}>
+        <noteContext.Provider value = {{notes, addNote, deleteNote, editNote, getNotes}}>
             {props.children}
         </noteContext.Provider>
     )
