@@ -54,8 +54,10 @@ const NoteState = (props) => {
       const [notes, setNotes] = useState(notesInitial)
 
       // Add a note
-      const addNote = (note) => {
+      const addNote = (title, description, tag) => {
 
+        // TO DO: API CALL
+        note = null;
         setNotes(notes.push(note));
       }
 
