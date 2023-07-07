@@ -1,4 +1,4 @@
-//import React, {useContext, useEffect} from 'react'
+import React from 'react'
 
 // Using context in About
 const About = () => {

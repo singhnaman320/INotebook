@@ -73,8 +73,9 @@ const NoteState = (props) => {
       }
 
       // Delete a note
-      const deleteNote = () => {
+      const deleteNote = (id) => {
         
+        console.log("Deleting the note with id: " + id)
       }
 
       // Edit a note
