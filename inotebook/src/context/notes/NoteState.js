@@ -54,8 +54,9 @@ const NoteState = (props) => {
       const [notes, setNotes] = useState(notesInitial)
 
       // Add a note
-      const addNote = () => {
+      const addNote = (note) => {
 
+        setNotes(notes.push(note));
       }
 
       // Delete a note
