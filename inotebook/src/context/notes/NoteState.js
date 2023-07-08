@@ -100,7 +100,9 @@ const NoteState = (props) => {
             notes[index].tag = tag;
 
           }
+          break;
         }
+        setNotes(notes);
       }
 
     return(
