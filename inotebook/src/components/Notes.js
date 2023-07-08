@@ -17,15 +17,17 @@ const Notes = () => {
   
   const updateNote = (note) => {
 
-
+    ref.toggle();
   }
+
+  const ref = useRef(null)
 
   return (
     <>
       <AddNote/>
      
       {/* Modal */}
-      <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" ref={ref} aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
