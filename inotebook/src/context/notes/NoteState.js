@@ -89,20 +89,22 @@ const NoteState = (props) => {
         const json = await response.json();
         console.log(json)
       
-        // Logic to edit in client
-        for (let index = 0; index < notes.length; index++) {
+        let newNotes = JSON.parse(JSON.stringify(notes)); // making copy of notes so as to display on frontend
 
-          const element = notes[index];
+        // Logic to edit in client
+        for (let index = 0; index < newNotes.length; index++) {
+
+          const element = newNotes[index];
           if(element._id === id){
 
-            notes[index].title = title;
-            notes[index].description = description;
-            notes[index].tag = tag;
-
+            newNotes[index].title = title;
+            newNotes[index].description = description;
+            newNotes[index].tag = tag;
+            break;
           }
-          break;
         }
-        setNotes(notes);
+        //console.log(id, newNotes)
+        setNotes(newNotes);
       }
 
     return(
