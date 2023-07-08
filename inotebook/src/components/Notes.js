@@ -7,7 +7,7 @@ const Notes = () => {
 
   
   const context = useContext(noteContext);
-  const{notes, getNotes} = context;
+  const{notes, getNotes, editNote} = context;
 
   useEffect(() => {
    
@@ -29,6 +29,7 @@ const Notes = () => {
   const handleClick = (e) => {
 
     console.log("Updating the note: ", note)
+    editNote(note.id, note.etitle, note.edescription, note.etag);
     refClose.current.click();
   }
 
