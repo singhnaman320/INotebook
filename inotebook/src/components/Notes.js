@@ -40,7 +40,20 @@ const Notes = () => {
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              ...
+              <form className='my-3'>
+                  <div className="mb-3">
+                      <label htmlFor="title" className="form-label">Title</label>
+                      <input type="text" className="form-control" id="etitle" name="etitle" aria-describedby="emailHelp" onChange={onChange}/>
+                  </div>
+                  <div className="mb-3">
+                      <label htmlFor="description" className="form-label">Description</label>
+                      <input type="text" className="form-control" id="edescription"  name="edescription" onChange={onChange}/>
+                  </div>
+                  <div className="mb-3">
+                      <label htmlFor="tag" className="form-label">Tag</label>
+                      <input type="text" className="form-control" id="etag"  name="etag" onChange={onChange}/>
+                  </div>
+              </form>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
