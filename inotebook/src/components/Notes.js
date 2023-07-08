@@ -82,6 +82,7 @@ const Notes = () => {
 
       <div className="container row my-3">
           <h2>Your Notes</h2>
+          {notes.length === 0 && "No notes available to display.!"}  {/* When we have nothing to display in else, we use && */}
           {notes.map((note) =>{
 
             return <NoteItem key={note._id} updateNote={updateNote} note={note}/>  // _id come from Mongodb
