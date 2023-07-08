@@ -68,7 +68,7 @@ const Notes = () => {
                   </div>
                   <div className="mb-3">
                       <label htmlFor="tag" className="form-label">Tag</label>
-                      <input type="text" className="form-control" id="etag"  name="etag" value={note.etag} onChange={onChange}/>
+                      <input type="text" className="form-control" id="etag"  name="etag" value={note.etag} onChange={onChange} minLength={5} required/>
                   </div>
               </form>
             </div>
