@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react'  // using useRef we can referone element
+import React, { useContext, useEffect, useRef, useState } from 'react'  // using useRef we can referone element
 import noteContext from '../context/notes/noteContext';
 import NoteItem from './NoteItem';
 import AddNote from './AddNote';
@@ -21,13 +21,26 @@ const Notes = () => {
   }
 
   const ref = useRef(null)
+  const [note, setNote] = useState({title: "", description:"", tag:"default"})
+
+  const handleClick = (e) => {
+
+    e.preventDefault();
+  }
+
+  const onChange = (event) =>{
+    // ... -> spread operator
+
+    // means all the values which is inside this note object will be there but the properties written after that must be overwritten 
+    setNote({...note, [event.target.name]: event.target.value});
+  }
 
   return (
     <>
       <AddNote/>
 
       {/* Button trigger modal */}
-      <button type="button" ref={ref} class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" ref={ref} class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Launch demo modal
       </button>
      
