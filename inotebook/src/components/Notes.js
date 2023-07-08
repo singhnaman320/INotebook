@@ -23,10 +23,10 @@ const Notes = () => {
   const ref = useRef(null)
   const [note, setNote] = useState({title: "", description:"", tag:"default"})
 
-  const handleClick = (e) => {
+  // const handleClick = (e) => {
 
-    e.preventDefault();
-  }
+  //   e.preventDefault();
+  // }
 
   const onChange = (event) =>{
     // ... -> spread operator
@@ -40,7 +40,7 @@ const Notes = () => {
       <AddNote/>
 
       {/* Button trigger modal */}
-      <button type="button" ref={ref} class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" ref={ref} className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Launch demo modal
       </button>
      
