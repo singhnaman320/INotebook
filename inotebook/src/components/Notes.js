@@ -16,18 +16,19 @@ const Notes = () => {
   }, [])
   
   const ref = useRef(null)
-  const [note, setNote] = useState({title: "", description:"", tag:"default"})
+  const [note, setNote] = useState({etitle: "", edescription:"", etag:""})
 
   const updateNote = (currentNote) => {
 
     ref.current.click();
-    setNote(currentNote)
+    setNote({etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag})
   }
 
-  // const handleClick = (e) => {
+  const handleClick = (e) => {
 
-  //   e.preventDefault();
-  // }
+    console.log("Updating the note: ", note)
+    e.preventDefault();
+  }
 
   const onChange = (event) =>{
     // ... -> spread operator
@@ -46,7 +47,7 @@ const Notes = () => {
       </button>
      
       {/* Modal */}
-      <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"aria-hidden="true">
+      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel"aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
@@ -57,21 +58,21 @@ const Notes = () => {
               <form className='my-3'>
                   <div className="mb-3">
                       <label htmlFor="title" className="form-label">Title</label>
-                      <input type="text" className="form-control" id="etitle" name="etitle" aria-describedby="emailHelp" onChange={onChange}/>
+                      <input type="text" className="form-control" id="etitle" name="etitle" aria-describedby="emailHelp" value={note.etitle} onChange={onChange}/>
                   </div>
                   <div className="mb-3">
                       <label htmlFor="description" className="form-label">Description</label>
-                      <input type="text" className="form-control" id="edescription"  name="edescription" onChange={onChange}/>
+                      <input type="text" className="form-control" id="edescription"  name="edescription" value={note.edescription} onChange={onChange}/>
                   </div>
                   <div className="mb-3">
                       <label htmlFor="tag" className="form-label">Tag</label>
-                      <input type="text" className="form-control" id="etag"  name="etag" onChange={onChange}/>
+                      <input type="text" className="form-control" id="etag"  name="etag" value={note.etag} onChange={onChange}/>
                   </div>
               </form>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Update Note</button>
+              <button onClick={handleClick} type="button" className="btn btn-primary">Update Note</button>
             </div>
           </div>
         </div>
