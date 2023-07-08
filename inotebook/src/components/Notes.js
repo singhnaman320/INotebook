@@ -15,13 +15,14 @@ const Notes = () => {
 
   }, [])
   
-  const updateNote = (note) => {
-
-    ref.current.click();
-  }
-
   const ref = useRef(null)
   const [note, setNote] = useState({title: "", description:"", tag:"default"})
+
+  const updateNote = (currentNote) => {
+
+    ref.current.click();
+    setNote(currentNote)
+  }
 
   // const handleClick = (e) => {
 
