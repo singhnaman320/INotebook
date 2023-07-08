@@ -25,6 +25,11 @@ const Notes = () => {
   return (
     <>
       <AddNote/>
+      
+      {/* Button trigger modal */}
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Launch demo modal
+      </button>
      
       {/* Modal */}
       <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" ref={ref} aria-hidden="true">
