@@ -100,9 +100,7 @@ const NoteState = (props) => {
             notes[index].tag = tag;
 
           }
-          
         }
-        
       }
 
     return(
