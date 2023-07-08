@@ -17,7 +17,7 @@ const Notes = () => {
   
   const updateNote = (note) => {
 
-    ref.toggle();
+    ref.current.click();
   }
 
   const ref = useRef(null)
@@ -25,14 +25,14 @@ const Notes = () => {
   return (
     <>
       <AddNote/>
-      
+
       {/* Button trigger modal */}
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" ref={ref} class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Launch demo modal
       </button>
      
       {/* Modal */}
-      <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" ref={ref} aria-hidden="true">
+      <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
@@ -44,7 +44,7 @@ const Notes = () => {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Save changes</button>
+              <button type="button" className="btn btn-primary">Update Note</button>
             </div>
           </div>
         </div>
