@@ -29,7 +29,7 @@ const Notes = () => {
   const handleClick = (e) => {
 
     console.log("Updating the note: ", note)
-    editNote(note.id, note.etitle, note.edescription, note.etag);
+    editNote(note.id, note.etitle, note.edescription, note.etag);  // edit notes just before closing edit box
     refClose.current.click();
   }
 
