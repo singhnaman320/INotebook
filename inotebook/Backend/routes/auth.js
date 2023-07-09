@@ -16,10 +16,12 @@ router.post('/createUser', [
     body('email', 'Enter a valid email !').isEmail(),
     body('password', 'Enter a valid password !').isLength({min: 8})
 ], async (req, res) =>{
-    // if there are errors, return bad request and the errors
+
+    let success = false;
+   // if there are errors, return bad request and the errors
    const result = validationResult(req)
    if(!result.isEmpty()){
-    return res.status(400).json({errors: result.array()});
+    return res.status(400).json({success, errors: result.array()});
    }
 
    try {
@@ -27,7 +29,7 @@ router.post('/createUser', [
         // Creating a user and checking whether the user with this email already exists
         let user = await User.findOne({email : req.body.email});
         if(user){
-            return res.status(400).json({error: "sorry.!, a user with this email already exists"})
+            return res.status(400).json({success, error: "sorry.!, a user with this email already exists"})
         }
         // Bcrypting Password
         const salt = await bcrypt.genSalt(10);
@@ -49,7 +51,8 @@ router.post('/createUser', [
         const authToken = jwt.sign(data, JWT_SECRET) //Jwt signing
         console.log(authToken);
 
-        res.json({authToken})
+        success = true;
+        res.json({success, authToken})
 
         //.then(user => res.json(user))
         //.catch(err => {console.log(err) // If you provide duplicate data it will provide you an error 
