@@ -8,8 +8,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NoteState from "./context/notes/NoteState";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import { useState } from "react";
 
 function App() {
+
+  const [alert, setAlert] = useState(null) // Alert is taken as object here
+
   return (
     <>
       {/* All variables of Notestate will be available every component here */}

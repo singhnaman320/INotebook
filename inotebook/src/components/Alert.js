@@ -11,7 +11,7 @@ export default function Alert(props) {
   return (
     
     // when alert popup comes, it is shifting other part downwards (CLS- Cummulative Shift Layout). so we will correct that as 
-    // well bu using a div outside it and providing it some height
+    // well be using a div outside it and providing it some height
 
     <div style={{height: "7vh"}}>
       {/* We can not use it inside other div. To use it we have to tell that it is javscript by using {}. So let's do it  */}
