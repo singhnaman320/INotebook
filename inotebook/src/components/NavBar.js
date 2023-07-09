@@ -1,7 +1,15 @@
 import {React} from 'react'
 import { Link , useLocation} from 'react-router-dom'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 const NavBar = () =>{
+
+  let history = useHistory();  
+  const handleLogout = () =>{
+
+    localStorage.removeItem('token');
+    history.push("/login")
+  }
 
   // we have used useLocation here so that when we click on Home this will highlight and when we click on About this will highlight 
   let location = useLocation();
@@ -27,7 +35,7 @@ const NavBar = () =>{
                     {!localStorage.getItem('token') ? <form className="d-flex" role="search">
                         <Link className="btn btn-warning" to={'/login'} role="button">Login</Link>
                         <Link className="btn btn-warning mx-2" to={'/signup'} role="button">Signup</Link>
-                    </form> : <button className='btn btn-warning'>Logout</button>
+                    </form> : <button onClick={handleLogout} className='btn btn-warning'>Logout</button>
                     }
                 </div>
             </div>
