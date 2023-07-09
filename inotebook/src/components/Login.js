@@ -2,10 +2,12 @@ import React from 'react'
 
 const Login = () => {
 
-  const handleSubmit = () =>{
+  const handleSubmit = (e) =>{
 
+    e.preventDefault();
+    fetch("http://localhost:5000/api/auth/login")
   } 
-   
+
   return (
     <div>
         <form>
