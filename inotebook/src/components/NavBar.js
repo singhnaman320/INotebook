@@ -23,10 +23,12 @@ const NavBar = () =>{
                             <Link className={`nav-link ${location.pathname === "/about" ? "active" : ""}`} to={'/about'}>About</Link>
                         </li>
                     </ul>
-                    <form className="d-flex" role="search">
+                    {/* If else */}
+                    {!localStorage.getItem('token') ? <form className="d-flex" role="search">
                         <Link className="btn btn-warning" to={'/login'} role="button">Login</Link>
                         <Link className="btn btn-warning mx-2" to={'/signup'} role="button">Signup</Link>
-                    </form>
+                    </form> : <button className='btn btn-warning'>Logout</button>
+                    }
                 </div>
             </div>
         </nav>
