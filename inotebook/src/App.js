@@ -14,6 +14,21 @@ function App() {
 
   const [alert, setAlert] = useState(null) // Alert is taken as object here
 
+  const showAlert = (message, type) =>{
+
+    setAlert({
+
+      msg : message,
+      alertType : type
+    })
+
+    setTimeout(()=>{  // Alert removed by itself after 2 sec
+
+      setAlert(null);
+
+    }, 2000)
+  }
+
   return (
     <>
       {/* All variables of Notestate will be available every component here */}
