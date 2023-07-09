@@ -3,7 +3,7 @@ import noteContext from '../context/notes/noteContext';
 import NoteItem from './NoteItem';
 import AddNote from './AddNote';
 
-const Notes = () => {
+const Notes = (props) => {
 
   const context = useContext(noteContext);
   const{notes, getNotes, editNote} = context;
@@ -30,6 +30,7 @@ const Notes = () => {
     console.log("Updating the note: ", note)
     editNote(note.id, note.etitle, note.edescription, note.etag);  // edit notes just before closing edit box
     refClose.current.click();
+    props.showAlert("Updated Sucessfully.!", "success");
   }
 
   const onChange = (event) =>{
@@ -41,7 +42,7 @@ const Notes = () => {
 
   return (
     <>
-      <AddNote/>
+      <AddNote showAlert={props.showAlert}/>
 
       {/* Button trigger modal */}
       <button type="button" ref={ref} className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -85,7 +86,7 @@ const Notes = () => {
           <p>{notes.length === 0 && "Sorry, no notes available to display.!"}</p>  {/* When we have nothing to display in else, we use && */}
           {notes.map((note) =>{
 
-            return <NoteItem key={note._id} updateNote={updateNote} note={note}/>  // _id come from Mongodb
+            return <NoteItem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note}/>  // _id come from Mongodb
 
           })}
       </div>
