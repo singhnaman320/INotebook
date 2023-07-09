@@ -44,7 +44,7 @@ const Login = (props) => {
   }
 
   return (
-    <div className='mt-3'>
+    <div className='mt-2'>
         <h2>Login to continue to INotebook</h2>
         <form  onSubmit={handleSubmit}>  {/* On submit will be form not button */}
             <div className="mb-3">
