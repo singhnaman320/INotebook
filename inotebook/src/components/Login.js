@@ -15,7 +15,7 @@ const Login = () => {
           "Content-Type": "application/json"
         // "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRhM2M2OGIxODE5NThiNmM5NmFiMjUwIn0sImlhdCI6MTY4ODQ4MzM5OH0.OvvYw2PbMMoMCeP1jL-1vZUYrqZ8LYpJi3ycDQfTqGY"
         },
-        body: JSON.stringify({email, password}),
+        body: JSON.stringify({email: credentials.email, password: credentials.password}),
       });
 
       const json = await response.json();
@@ -26,7 +26,7 @@ const Login = () => {
     // ... -> spread operator
 
     // means all the values which is inside this note object will be there but the properties written after that must be overwritten 
-    setNote({...note, [event.target.name]: event.target.value});
+    setCredentials({...credentials, [event.target.name]: event.target.value});
   }
 
   return (
