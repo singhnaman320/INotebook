@@ -20,6 +20,13 @@ const Login = () => {
       console.log(json);
   } 
 
+  const onChange = (event) =>{
+    // ... -> spread operator
+
+    // means all the values which is inside this note object will be there but the properties written after that must be overwritten 
+    setNote({...note, [event.target.name]: event.target.value});
+  }
+
   return (
     <div>
         <form  onSubmit={handleSubmit}>  {/* On submit will be form not button */}
