@@ -19,7 +19,7 @@ function App() {
     setAlert({
 
       msg : message,
-      alertType : type
+      type : type
     })
 
     setTimeout(()=>{  // Alert removed by itself after 2 sec
@@ -35,7 +35,7 @@ function App() {
       <NoteState>
         <Router>
           <NavBar />
-          <Alert/>
+          <Alert alert = {alert}/>
           <div className="container">
             <Switch>
               <Route exact path="/">

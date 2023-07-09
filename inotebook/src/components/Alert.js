@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Alert(props) {
+function Alert(props) {
 
   // Capitalizing first word of alert
   const capitalize = (word) =>{
@@ -17,9 +17,10 @@ export default function Alert(props) {
       {/* We can not use it inside other div. To use it we have to tell that it is javscript by using {}. So let's do it  */}
       {props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
         <strong>{capitalize(props.alert.type)}</strong>: {props.alert.msg}
-        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>}
     </div>
     
   )
 }
+
+export default Alert
