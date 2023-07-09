@@ -8,16 +8,18 @@ const Signup = () => {
 
     const handleSubmit = async(e) =>{
   
-      e.preventDefault();
-  
-      // API call
-      const response = await fetch("http://localhost:5000/api/auth/login", {
+        e.preventDefault();
+        const {name, email, password} = credentials;
+
+        // API call
+        const response = await fetch("http://localhost:5000/api/auth/createUser", {
+
           method: "POST",
           headers: {
             "Content-Type": "application/json"
           // "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRhM2M2OGIxODE5NThiNmM5NmFiMjUwIn0sImlhdCI6MTY4ODQ4MzM5OH0.OvvYw2PbMMoMCeP1jL-1vZUYrqZ8LYpJi3ycDQfTqGY"
           },
-          body: JSON.stringify({email: credentials.email, password: credentials.password}),
+          body: JSON.stringify({name, email, password}),
         });
   
         const json = await response.json();
@@ -59,7 +61,7 @@ const Signup = () => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="cpassword" className="form-label">Confirm Password</label>
-                    <input type="cpassword" className="form-control" id="cpassword" name= "cpassword" onChange={onChange}/>
+                    <input type="password" className="form-control" id="cpassword" name= "cpassword" onChange={onChange}/>
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
