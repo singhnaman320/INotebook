@@ -2,15 +2,26 @@ import React from 'react'
 
 const Login = () => {
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = async(e) =>{
 
     e.preventDefault();
-    fetch("http://localhost:5000/api/auth/login")
+
+    // API call
+    const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        // "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRhM2M2OGIxODE5NThiNmM5NmFiMjUwIn0sImlhdCI6MTY4ODQ4MzM5OH0.OvvYw2PbMMoMCeP1jL-1vZUYrqZ8LYpJi3ycDQfTqGY"
+        },
+      });
+
+      const json = await response.json();
+      console.log(json);
   } 
 
   return (
     <div>
-        <form>
+        <form  onSubmit={handleSubmit}>  {/* On submit will be form not button */}
             <div className="mb-3">
                 <label htmlFor="email" className="form-label">Email address</label>
                 <input type="email" className="form-control" id="email" name="email" aria-describedby="emailHelp"/>
@@ -20,7 +31,7 @@ const Login = () => {
                 <label htmlFor="password" className="form-label">Password</label>
                 <input type="password" className="form-control" id="password" name="password"/>
             </div>
-            <button type="submit" className="btn btn-warning" onSubmit={handleSubmit}>Submit</button>
+            <button type="submit" className="btn btn-warning">Submit</button>
         </form>
     </div>
   )
