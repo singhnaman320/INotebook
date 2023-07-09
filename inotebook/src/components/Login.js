@@ -1,6 +1,11 @@
 import React from 'react'
 
 const Login = () => {
+
+  const handleSubmit = () =>{
+
+  } 
+   
   return (
     <div>
         <form>
@@ -13,7 +18,7 @@ const Login = () => {
                 <label htmlFor="password" className="form-label">Password</label>
                 <input type="password" className="form-control" id="password" name="password"/>
             </div>
-            <button type="submit" className="btn btn-warning">Submit</button>
+            <button type="submit" className="btn btn-warning" onSubmit={handleSubmit}>Submit</button>
         </form>
     </div>
   )
