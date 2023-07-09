@@ -6,9 +6,8 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Notes = (props) => {
 
-  let history = useHistory();
-
   const context = useContext(noteContext);
+  let history = useHistory();
   const{notes, getNotes, editNote} = context;
 
   useEffect(() => {
