@@ -75,6 +75,8 @@ router.post('/login', [
     body('password', 'Password can not be blank!').exists()
 ], async (req, res) =>{
 
+   let success = false;
+   // If there are errors, return bad request and errors
    const result = validationResult(req)
    if(!result.isEmpty()){
     return res.status(400).json({errors: result.array()});
@@ -87,13 +89,15 @@ router.post('/login', [
         
         let user = await User.findOne({email});
         if(!user){
-            return res.status(400).json({error: "Please enter correct login credentials.!"})
+            success = false;
+            return res.status(400).json({success, error: "Please enter correct login credentials.!"})
         }
 
         // Comparing given password with saved password, compare() returns boolean value
         const comparePassword = await bcrypt.compare(password, user.password); 
         if(!comparePassword){
-            return res.status(400).json({error: "Please enter correct login credentials.!"})
+            success = false;
+            return res.status(400).json({success, error: "Please enter correct login credentials.!"})
         }
 
         // Payload is data of user that we will send. Similar as above data.
@@ -104,7 +108,8 @@ router.post('/login', [
         }
 
         const authToken = jwt.sign(payload, JWT_SECRET) //Jwt signing
-        res.json({authToken})
+        success = true;
+        res.json({success, authToken})
 
     } catch (error) {
         console.log(error.message)
