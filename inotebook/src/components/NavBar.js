@@ -23,6 +23,9 @@ const NavBar = () =>{
                             <Link className={`nav-link ${location.pathname === "/about" ? "active" : ""}`} to={'/about'}>About</Link>
                         </li>
                     </ul>
+                    <form class="d-flex" role="search">
+                        <button class="btn btn-warning" type="submit">Search</button>
+                    </form>
                 </div>
             </div>
         </nav>
