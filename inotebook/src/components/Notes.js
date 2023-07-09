@@ -12,7 +12,7 @@ const Notes = (props) => {
 
   useEffect(() => {
    
-    if(localStorage.getItem("token")){
+    if(localStorage.getItem('token')){
 
       getNotes();
 
