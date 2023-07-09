@@ -13,6 +13,7 @@ const Login = () => {
           "Content-Type": "application/json"
         // "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRhM2M2OGIxODE5NThiNmM5NmFiMjUwIn0sImlhdCI6MTY4ODQ4MzM5OH0.OvvYw2PbMMoMCeP1jL-1vZUYrqZ8LYpJi3ycDQfTqGY"
         },
+        body: JSON.stringify({email, password}),
       });
 
       const json = await response.json();
