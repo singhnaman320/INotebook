@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Signup = () => {
 
-    const [credentials, setCredentials] = useState({email: "", password: ""}) 
+    const [credentials, setCredentials] = useState({name: "", email: "", password: "", cpassword: ""}) 
     let history = useHistory();
 
     const handleSubmit = async(e) =>{
