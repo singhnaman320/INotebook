@@ -2,6 +2,7 @@
 This repository deals with the code base inotebook application where user can store their important notes on cloud and retrieve it whenever they want. This application will be created using MERN stack.
 
 <hr>
+<hr>
 
 <h2>Tech-Stacks and Tools:</h2>
 <table width = 100%>
